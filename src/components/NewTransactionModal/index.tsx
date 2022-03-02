@@ -4,8 +4,9 @@ import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import closeImg from '../../assets/close.svg'
 
-import { Container, TransactionTypeContainer, RadioBox }from './style'
 import { api } from '../../services/api'
+
+import { Container, TransactionTypeContainer, RadioBox }from './style'
 
 interface NewTransactionModalProps{
     isOpen: boolean;
@@ -27,7 +28,7 @@ export function NewTransactionModal ({isOpen ,onRequestClose } : NewTransactionM
             category,
             type
         }
-
+        console.log(data)
         api.post('/transactions' , data)
 
     }

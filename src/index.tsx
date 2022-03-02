@@ -15,7 +15,7 @@ createServer({
         {
           id:1,
           title: 'Freelancer de web',
-          tytpe: 'deposit',
+          type: 'deposit',
           category: 'Dev',
           amount: 6000,
           createdAt: new Date('2021-02-12 09:00:00')
@@ -23,7 +23,7 @@ createServer({
         {
           id:2,
           title: 'Aluguel',
-          tytpe: 'withdraw',
+          type: 'withdrow',
           category: 'Casa',
           amount: 400,
           createdAt: new Date('2021-02-20 10:00:00')
@@ -36,13 +36,15 @@ createServer({
     this.namespace = 'api'
 
     this.get('/transactions', () => {
-      return this.schema.all('transitions')
+      return this.schema.all('transaction')
     })
 
     this.post('/transactions' , (schema , request) => {
       const data = JSON.parse(request.requestBody)
 
-      return schema.create('transitions', data)
+      console.log(data)
+
+      return schema.create('transaction', data)
     })
   }
 })
